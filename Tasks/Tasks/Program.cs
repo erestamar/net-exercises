@@ -2,12 +2,10 @@
 //float number = 12.103F;
 //Console.WriteLine(number);
 
-using System.Linq.Expressions;
-
 Console.WriteLine("ЭЭЭЭЙ!!!Введите число, которое хотите укоротить до сотых:");
-string? usernumber = Console.ReadLine();
-string empty = "";
-if (usernumber == empty)
+string? userNumber = Console.ReadLine();
+
+if (string.IsNullOrEmpty(userNumber))
 {
     Console.WriteLine("Ошибка, ты какашка! В следующий раз введи что-то ёмаё!");
 }
@@ -15,15 +13,13 @@ else
 {
     try
     {
-        float truenumber = Convert.ToSingle(usernumber);
-        Console.WriteLine($" Ну ладно, держи: {Math.Round(truenumber, 3)}");
+        float trueNumber = Convert.ToSingle(userNumber);
+        Console.WriteLine($" Ну ладно, держи: {Math.Round(trueNumber, 3)}");
     }
-    catch (System.FormatException)
+    catch (FormatException)
     {
         Console.WriteLine("А по жопе? Что за фомат?");
     }
-    
-    
 }
 
 
