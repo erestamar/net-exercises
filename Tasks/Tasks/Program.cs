@@ -53,6 +53,31 @@
 /*S.1.3
     S1.3. Составить программу вывода на экран числа, вводимого с клавиатуры.
     Выводимому числу должно предшествовать сообщение «Вы ввели число»
+
+    Console.WriteLine("Ептыыдь!! Введи число любое:");
+    string? userText = Console.ReadLine();
+    if (string.IsNullOrEmpty(userText))
+    {
+        Console.WriteLine("Почему пустооооооо??!?!?!?!?!");
+    }
+    else
+    {
+        try
+        {
+            int userNumber = Convert.ToInt32(userText);
+            Console.WriteLine($"Обраточка летит! Держи назад: {userNumber}");
+        }
+        catch (FormatException)
+        {
+            Console.WriteLine("Ты чего?! Забыл как выглядят циферки, АААА?!?!?!");
+        }
+    }
+*/
+
+
+/*S.1.4
+    S.1.4 Составить программу вывода на экран числа, вводимого с клавиатуры. 
+    После выводимого числа должно следовать сообщение » — вот какое число Вы  ввели».
 */
 Console.WriteLine("Ептыыдь!! Введи число любое:");
 string? userText = Console.ReadLine();
@@ -65,7 +90,7 @@ else
     try
     {
         int userNumber = Convert.ToInt32(userText);
-        Console.WriteLine($"Обраточка летит! Держи назад: {userText}");
+        Console.WriteLine($"{userNumber} хехе, я так и думал то ты введёшь именно его");
     }
     catch (FormatException)
     {
