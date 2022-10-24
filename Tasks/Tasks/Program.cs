@@ -107,7 +107,7 @@
 
     S1.7. Составить программу вывода на экран в одну строку трех любых чисел с двумя
     пробелами между ними.
- */
+ 
 
 Console.WriteLine("Держи числа хахахаха: 1 13 49");
 int firstNumber = 7;
@@ -121,5 +121,16 @@ string? userTextSecond = Console.ReadLine();
 Console.WriteLine("Теперь третье число:");
 string? userTextThird = Console.ReadLine();
 Console.WriteLine($"Хм... а вот и они:{userTextFirst}  {userTextSecond}  {userTextThird}");
+*/
+
+Console.WriteLine("Введи числа через пробел: ");
+string userMessage = Console.ReadLine();
+string[] arrayNumbers = userMessage.Split(' ');
+foreach(var number in arrayNumbers)
+{
+    Console.WriteLine($"<{number}>");
+}
+
+
 
 
