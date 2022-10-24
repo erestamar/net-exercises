@@ -224,14 +224,12 @@ else
     г) произведение его цифр.
 */
 
-using System.Runtime.Serialization.Json;
-
 Console.WriteLine("Введите три числа через пробел");
 string numbers = Console.ReadLine();
 string[] numbersArray = numbers.Split(' ');
 if (numbersArray.Length == 3)
 {
-    Console.WriteLine("Введите 1 если хотите суммировать все числа, 2 если хотите произвести их: ");
+    Console.WriteLine("Введите 1 если хотите суммировать все числа, 2 если хотите произвести их, и 3 если хотит посчитать сумму цифр чисел: ");
     string check = Console.ReadLine();
     if (check == "1")
     {
@@ -268,6 +266,22 @@ if (numbersArray.Length == 3)
         }
         double resultPro = resultProInt * resultProDouble;
         Console.WriteLine($"Результат произведение чисел: {resultPro}");
+    }
+    else if (check == "3")
+    {
+        int res = 0;
+        foreach (string str in numbersArray)
+        {
+            foreach (char symbol in str)
+            {
+                if (char.IsDigit(symbol))
+                {
+                    res += int.Parse(symbol+"");
+                }
+            }
+        }
+        Console.WriteLine($"Сумма цифр в числах {res}");
+
     }
     else
     {
