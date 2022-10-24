@@ -143,7 +143,7 @@ foreach(var number in arrayNumbers)
     до линии горизонта от точки В с заданной высотой h=AB над Землей.
     S2.10. Составить программу решения линейного уравнения ax+b=0 (a ≠ 0).
     S2.11. Даны катеты прямоугольного треугольника. Найти его гипотенузу.   
-*/
+
 
 Console.WriteLine("Введите знаачение числа х:");
 string? xString = Console.ReadLine();
@@ -214,3 +214,67 @@ else
     Console.WriteLine("Недопустимое количество катетов!");
 }
 
+*/
+
+
+
+/* A2.1.
+    A2.1. Дано двузначное число. Найти:
+    в) сумму его цифр;
+    г) произведение его цифр.
+*/
+
+using System.Runtime.Serialization.Json;
+
+Console.WriteLine("Введите три числа через пробел");
+string numbers = Console.ReadLine();
+string[] numbersArray = numbers.Split(' ');
+if (numbersArray.Length == 3)
+{
+    Console.WriteLine("Введите 1 если хотите суммировать все числа, 2 если хотите произвести их: ");
+    string check = Console.ReadLine();
+    if (check == "1")
+    {
+        int resultSumInt = 0;
+        double resultSumDouble = 0;
+        foreach (string i in numbersArray)
+        {
+            if (int.TryParse(i, out int numberInt))
+            {
+                resultSumInt += numberInt;
+            }
+            else if (double.TryParse(i, out double numberDouble))
+            {
+                resultSumDouble += numberDouble;
+            }
+        }
+        double resultSum = resultSumInt + resultSumDouble;
+        Console.WriteLine($"Результат суммы чисел: {resultSum}");
+    }
+    else if (check == "2")
+    {
+        int resultProInt = 1;
+        double resultProDouble = 1;
+        foreach (string i in numbersArray)
+        {
+            if (int.TryParse(i, out int numberInt))
+            {
+                resultProInt *= numberInt;
+            }
+            else if (double.TryParse(i, out double numberDouble))
+            {
+                resultProDouble *= numberDouble;
+            }
+        }
+        double resultPro = resultProInt * resultProDouble;
+        Console.WriteLine($"Результат произведение чисел: {resultPro}");
+    }
+    else
+    {
+        Console.WriteLine("Ошибка");
+    }
+}
+else
+{
+    Console.WriteLine("Неверное кол-во чисел");
+}
