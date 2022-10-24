@@ -121,7 +121,7 @@ string? userTextSecond = Console.ReadLine();
 Console.WriteLine("Теперь третье число:");
 string? userTextThird = Console.ReadLine();
 Console.WriteLine($"Хм... а вот и они:{userTextFirst}  {userTextSecond}  {userTextThird}");
-*/
+
 
 Console.WriteLine("Введи числа через пробел: ");
 string userMessage = Console.ReadLine();
@@ -130,7 +130,87 @@ foreach(var number in arrayNumbers)
 {
     Console.WriteLine($"<{number}>");
 }
+*/
 
 
+/* S2.1-S2.4 S2.10. S2.11.
+    S2.1. Составить программу:
+а) вычисления значения функции y=7x2+3x+6 при любом значении x;
+б) вычисления значения функции x=12a2+7a+12 при любом значении а.
+    S2.2.Дана сторона квадрата. Найти его периметр.
+    S2.3. Дан радиус окружности. Найти ее диаметр
+    S2.4. Считая, что Земля — идеальная сфера с радиусом R=6350 км, определить расстояние 
+    до линии горизонта от точки В с заданной высотой h=AB над Землей.
+    S2.10. Составить программу решения линейного уравнения ax+b=0 (a ≠ 0).
+    S2.11. Даны катеты прямоугольного треугольника. Найти его гипотенузу.   
+*/
 
+Console.WriteLine("Введите знаачение числа х:");
+string? xString = Console.ReadLine();
+int x = Convert.ToInt32(xString);
+int y = 7 * x * 2 + 3 * x + 6;
+Console.WriteLine(y);
+
+Console.WriteLine("Введите значение стороны квадрата: ");
+string? sideString = Console.ReadLine();
+double side = Convert.ToDouble(sideString);
+double perimetr = side * 4;
+Console.WriteLine($"Вот периметр квадрата {perimetr}");
+
+Console.WriteLine("Введите радиус окружности: ");
+string? radString = Console.ReadLine();
+double rad = Convert.ToDouble(radString);
+double diametr = rad * 2;
+Console.WriteLine($"Вот периметр квадрата {diametr}");
+
+int r = 6350;
+int og = r;
+Console.WriteLine("Введите заданную высоту AB:");
+string? abString = Console.ReadLine();
+int ab = Convert.ToInt32(abString);
+int ob = r + ab;
+int bg = (ob * ob) - (og * og);
+Console.WriteLine($"Вот расстояние до линии горизонта{bg}");
+
+Console.WriteLine("Введите значения чисел a x b через пробел: ");
+string? axbString = Console.ReadLine();
+string[] axb = axbString.Split(' ');
+string stringA = axb.ElementAt(0);
+string stringX = axb.ElementAt(1);
+string stringB = axb.ElementAt(2);
+int numberA = Convert.ToInt32(stringA);
+int numberX = Convert.ToInt32(stringX);
+int numberB = Convert.ToInt32(stringB);
+if (numberA != 0)
+{
+    int result = numberA * numberX + numberB;
+    if (result != 0)
+    {
+        Console.WriteLine("Линейное выражение не может быть успешно выполнено!");
+    }
+    else
+    {
+        Console.WriteLine("Линейноее выражение успешно выполнено!");
+    }
+}
+else
+{
+    Console.WriteLine("Значение a не может быть равно нулю!");
+
+}
+
+Console.WriteLine("Введите значение катетов прямоугольного треугольника через пробел: ");
+string katetsSring = Console.ReadLine();
+string[] katetsStringArray = katetsSring.Split(' ');
+if (katetsStringArray.Length <= 2)
+{
+    int katetA = Convert.ToInt32(katetsStringArray[0]);
+    int katetB = Convert.ToInt32(katetsStringArray[1]);
+    int res = (katetA * katetA) + (katetB * katetB);
+    Console.WriteLine($"Гипотенуза прямоугольного треугольника: <{res}>");
+}
+else
+{
+    Console.WriteLine("Недопустимое количество катетов!");
+}
 
