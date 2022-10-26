@@ -231,42 +231,42 @@ else
 //{
 //    Console.WriteLine("Введите 1 если хотите суммировать все числа, 2 если хотите произвести их, и 3 если хотит посчитать сумму цифр чисел: ");
 //    string check = Console.ReadLine();
-    //if (check == "1")
-    //{
-    //    int resultSumInt = 0;
-    //    double resultSumDouble = 0;
-    //    foreach (string i in numbersArray)
-    //    {
-    //        if (int.TryParse(i, out int numberInt))
-    //        {
-    //            resultSumInt += numberInt;
-    //        }
-    //        else if (double.TryParse(i, out double numberDouble))
-    //        {
-    //            resultSumDouble += numberDouble;
-    //        }
-    //    }
-    //    double resultSum = resultSumInt + resultSumDouble;
-    //    Console.WriteLine($"Результат суммы чисел: {resultSum}");
-    //}
-    //else if (check == "2")
-    //{
-    //    int resultProInt = 1;
-    //    double resultProDouble = 1;
-    //    foreach (string i in numbersArray)
-    //    {
-    //        if (int.TryParse(i, out int numberInt))
-    //        {
-    //            resultProInt *= numberInt;
-    //        }
-    //        else if (double.TryParse(i, out double numberDouble))
-    //        {
-    //            resultProDouble *= numberDouble;
-    //        }
-    //    }
-    //    double resultPro = resultProInt * resultProDouble;
-    //    Console.WriteLine($"Результат произведение чисел: {resultPro}");
-    //}
+//if (check == "1")
+//{
+//    int resultSumInt = 0;
+//    double resultSumDouble = 0;
+//    foreach (string i in numbersArray)
+//    {
+//        if (int.TryParse(i, out int numberInt))
+//        {
+//            resultSumInt += numberInt;
+//        }
+//        else if (double.TryParse(i, out double numberDouble))
+//        {
+//            resultSumDouble += numberDouble;
+//        }
+//    }
+//    double resultSum = resultSumInt + resultSumDouble;
+//    Console.WriteLine($"Результат суммы чисел: {resultSum}");
+//}
+//else if (check == "2")
+//{
+//    int resultProInt = 1;
+//    double resultProDouble = 1;
+//    foreach (string i in numbersArray)
+//    {
+//        if (int.TryParse(i, out int numberInt))
+//        {
+//            resultProInt *= numberInt;
+//        }
+//        else if (double.TryParse(i, out double numberDouble))
+//        {
+//            resultProDouble *= numberDouble;
+//        }
+//    }
+//    double resultPro = resultProInt * resultProDouble;
+//    Console.WriteLine($"Результат произведение чисел: {resultPro}");
+//}
 
 //    if (check == "1" || check == "2")
 //    {
@@ -378,7 +378,7 @@ static void CalculateOp(string code, string[] numbersArray)
 
 /*I3.1.  
  *  I3.1.  Проверить, принадлежит ли число, введенное с клавиатуры, интервалу (–5, 3).
- *  */
+ *  
 
 
 
@@ -402,4 +402,38 @@ else
 {
     Console.WriteLine($"Это число {numberInput} не принадлежит интервалу!");
 
+}
+*/
+Console.WriteLine("Введите число: ");
+string? userIn = Console.ReadLine();
+if (Convert.ToInt32(userIn) > -5 && Convert.ToInt32(userIn) < 3)
+{
+    Console.WriteLine($"Это число {userIn} принадлежит интервалу!");
+}
+else
+{
+    Console.WriteLine($"Это число {userIn} не принадлежит интервалу!");
+
+}
+
+/* I3.2.  
+I3.2.  Даны три вещественных числа a, b, c. Проверить:
+а) выполняется ли неравенство a < b < c;
+б) выполняется ли неравенство b > a > c
+*/
+
+Console.WriteLine("Введите три числа через пробел: ");
+string? userInput = Console.ReadLine();
+string[] numArray = userInput.Split(' ');
+if (Convert.ToInt32(numArray[0]) < Convert.ToInt32(numArray[1]) && Convert.ToInt32(numArray[1]) < Convert.ToInt32(numArray[2]))
+{
+    Console.WriteLine("выполняется неравенство a < b < c;");
+}
+else if (Convert.ToInt32(numArray[0]) > Convert.ToInt32(numArray[1]) && Convert.ToInt32(numArray[1]) > Convert.ToInt32(numArray[2]))
+{
+    Console.WriteLine("выполняется неравенство b > a > c");
+}
+else
+{
+    Console.WriteLine("error");
 }
