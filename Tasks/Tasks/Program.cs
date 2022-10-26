@@ -404,9 +404,9 @@ else
 
 }
 */
-Console.WriteLine("Введите число: ");
-string? userIn = Console.ReadLine();
-int numInput = Convert.ToInt32(userIn);
+//Console.WriteLine("Введите число: ");
+//string? userIn = Console.ReadLine();
+//int numInput = Convert.ToInt32(userIn);
 //if (numInput > -5 && numInput < 3)
 //{
 //    Console.WriteLine($"Это число {numInput} принадлежит интервалу!");
@@ -418,7 +418,7 @@ int numInput = Convert.ToInt32(userIn);
 //}
 //Console.WriteLine(numInput <= -5 && numInput >= 3 ? $"Это число {numInput} не принадлежит интервалу!" : $"Это число {numInput} принадлежит интервалу!");
 
-Console.WriteLine($"Это число {numInput} {(numInput <= -5 && numInput >= 3 ? "не" : "")} принадлежит интервалу!");
+//Console.WriteLine($"Это число {numInput} {(numInput <= -5 && numInput >= 3 ? "не" : "")} принадлежит интервалу!");
 
 /* I3.2.  
 I3.2.  Даны три вещественных числа a, b, c. Проверить:
@@ -426,9 +426,9 @@ I3.2.  Даны три вещественных числа a, b, c. Провер
 б) выполняется ли неравенство b > a > c
 */
 
-Console.WriteLine("Введите три числа через пробел: ");
-string? userInput = Console.ReadLine();
-string[] numArray = userInput.Split(' ');
+//Console.WriteLine("Введите три числа через пробел: ");
+//string? userInput = Console.ReadLine();
+//string[] numArray = userInput.Split(' ');
 //if (Convert.ToInt32(numArray[0]) < Convert.ToInt32(numArray[1]) && Convert.ToInt32(numArray[1]) < Convert.ToInt32(numArray[2]))
 //{
 //    Console.WriteLine("выполняется неравенство a < b < c;");
@@ -441,14 +441,24 @@ string[] numArray = userInput.Split(' ');
 //{
 //    Console.WriteLine("error");
 //}
-List<int> ints = new List<int>();
-foreach (string str in numArray)
-{
-    ints.Add(Convert.ToInt32(str));
-}
-Console.WriteLine($"Выполняется неравенство {(ints[0] < ints[1] && ints[1] < ints[2] ? "a < b < c" : "b > a > c")}");
+//List<int> ints = new List<int>();
+//foreach (string str in numArray)
+//{
+//    ints.Add(Convert.ToInt32(str));
+//}
+//Console.WriteLine($"Выполняется неравенство {(ints[0] < ints[1] && ints[1] < ints[2] ? "a < b < c" : "b > a > c")}");
 
 /*
  * I3.24. Определить, является ли заданное шестизначное число счастливым. 
  * (Счастливым называют такое шестизначное число, что сумма его первых трех цифр равна сумме 
  * его последних трех цифр).
+ */
+
+Console.WriteLine("Введите число чтобы определить, является ли заданное шестизначное число счастливым: ");
+string? userIn = Console.ReadLine();
+List<int> intArray = new List<int>();
+foreach (char str in userIn)
+{
+    intArray.Add(Convert.ToInt32(str));
+}
+Console.WriteLine($"Данное число {(intArray[0] + intArray[1] + intArray[2] == intArray[3] + intArray[4] + intArray[5] ? "является" : "не является")} счастливым!");
