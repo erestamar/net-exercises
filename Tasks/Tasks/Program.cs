@@ -454,11 +454,37 @@ I3.2.  Даны три вещественных числа a, b, c. Провер
  * его последних трех цифр).
  */
 
-Console.WriteLine("Введите число чтобы определить, является ли заданное шестизначное число счастливым: ");
-string? userIn = Console.ReadLine();
-List<int> intArray = new List<int>();
-foreach (char str in userIn)
+//Console.WriteLine("Введите число чтобы определить, является ли заданное шестизначное число счастливым: ");
+//string? userIn = Console.ReadLine();
+//List<int> intArray = new List<int>();
+//foreach (char str in userIn)
+//{
+//    intArray.Add(Convert.ToInt32(str));
+//}
+//Console.WriteLine($"Данное число {(intArray[0] + intArray[1] + intArray[2] == intArray[3] + intArray[4] + intArray[5] ? "является" : "не является")} счастливым!");
+
+(int sumFirst, int sumSecond) SumOfElements(List<int> arr, int n)
 {
-    intArray.Add(Convert.ToInt32(str));
+    int sumFirst = 0;
+    int sumSecond = 0;
+    for (int i = 0; i < n; i++)
+    {
+        //i < n / 2 ? sumFirst += arr[i] : sumSecond += arr[i]; -????? не робит!!!! 	ヽ(╬ Ò﹏Ó)ノ
+        if (i < n / 2)
+            sumFirst += arr[i];
+
+        else
+            sumSecond += arr[i];
+    }
+    return (sumFirst, sumSecond);
 }
-Console.WriteLine($"Данное число {(intArray[0] + intArray[1] + intArray[2] == intArray[3] + intArray[4] + intArray[5] ? "является" : "не является")} счастливым!");
+Console.WriteLine("Ввдите число: ");
+string input = Console.ReadLine();
+List<int> arr = new List<int>();
+foreach (char i in input)
+{
+    arr.Add(Convert.ToInt32(i + ""));
+}
+
+(int sumFirst, int sumSecond) sums = SumOfElements(arr, arr.Count);
+Console.WriteLine($"Это число {(sums.sumFirst == sums.sumSecond ? "является" : "не является")} счастливым!");
