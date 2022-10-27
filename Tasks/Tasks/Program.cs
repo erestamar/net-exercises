@@ -492,23 +492,128 @@ I3.2.  Даны три вещественных числа a, b, c. Провер
 
 /* С5.13. Дано натуральное число.
  * Найти сумму его последних n цифр. Величины для хранения всех n последних цифр числа не использовать.
- */
+ 
 
 
-Console.WriteLine("Ввеедите натуральное число  (-_-)  : ");
+//Console.WriteLine("Ввеедите натуральное число  (-_-)  : ");
+//string input = Console.ReadLine();
+
+//List<int> numbersString = new List<int>();    
+//foreach (char s in input)
+//{
+//    numbersString.Add(Convert.ToInt32(s + "")); 
+//}
+//Console.WriteLine("Введите кол-во последних цифр числа, которое хотите суммировать  ＼(0_0)／ : ");
+//int naturalNumberToSum = Convert.ToInt32((Console.ReadLine())); 
+//int helper = naturalNumberToSum * -1; 
+//List<int> listOfLastNumbers = new List<int>();
+//for (int i = helper; i < 0; i++)
+//{
+//    listOfLastNumbers.Add(numbersString[^(-i)]);  
+//}
+//Console.WriteLine(listOfLastNumbers.Sum());
+*/
+
+/*5 .4.
+W5 .4.Дано натуральное число.Определить:
+а) сумму его цифр;
+б) количество цифр в нем;
+в) произведение его цифр;
+г) среднее арифметическое его цифр;
+д) сумму квадратов его цифр;
+е) сумму кубов его цифр;
+ж) его первую цифру;
+з) сумму его первой и последней цифр.
+
+*/
+
+
+Console.WriteLine("Засранец, введи натуральное(не гейское) число гнидаа! Я для кого стараюсь епта!!!!");
 string input = Console.ReadLine();
+int numberInput = Convert.ToInt32(input);
+Console.WriteLine("Введи букву желаемой задачи ёптыдь  ＼(0_0)／ !");
+Console.WriteLine(" а) сумму его цифр; \r\n б) количество цифр в нем; \r\n в) произведение его цифр; \r\n г) среднее арифметическое его цифр; \r\n д) сумму квадратов его цифр; \r\n е) сумму кубов его цифр;\r\n ж) его первую цифру; \r\n з) сумму его первой и последней цифр.");
+string inputOption = Console.ReadLine(); // а б в ...
+List<int> listOfNumbers = new List<int>();
+int result = 1;
+int resultOne = 0;
+int resultTwo = 0;
+int helper = 0;
+List<int> listOfNumbersOne = new List<int>();
 
-List<int> numbersString = new List<int>();    
-foreach (char s in input)
+if (inputOption == "а")
 {
-    numbersString.Add(Convert.ToInt32(s + "")); 
+    foreach (char s in input)
+    {
+        listOfNumbers.Add(Convert.ToInt32(s + ""));  // 12314 
+    }
+    Console.WriteLine($"Сумма той херни что ты ввёл  ＼(х_0)／  : {listOfNumbers.Sum()}");
 }
-Console.WriteLine("Введите кол-во последних цифр числа, которое хотите суммировать  ＼(0_0)／ : ");
-int naturalNumberToSum = Convert.ToInt32((Console.ReadLine())); 
-int helper = naturalNumberToSum * -1; 
-List<int> listOfLastNumbers = new List<int>();
-for (int i = helper; i < 0; i++)
+else if (inputOption == "б")
 {
-    listOfLastNumbers.Add(numbersString[^(-i)]);  
+    foreach (char s in input)
+    {
+        listOfNumbers.Add(Convert.ToInt32(s + ""));  // 12314 
+    }
+    Console.WriteLine($"Кол-во той херни что ты ввёл ＼(х_0)／ : {listOfNumbers.Count()}");
 }
-Console.WriteLine(listOfLastNumbers.Sum());
+else if (inputOption == "в")
+{
+    foreach (char s in input)
+    {
+        result *= Convert.ToInt32(s + "");
+    }
+    Console.WriteLine($"Произведение той херни что ты ввёл ＼(х_0)／ : {result}");
+}
+else if (inputOption == "г")
+{
+    foreach (char s in input)
+    {
+        listOfNumbers.Add(Convert.ToInt32(s + ""));  // 12314 
+    }
+    resultOne = listOfNumbers.Sum();
+    foreach (char s in input)
+    {
+        listOfNumbersOne.Add(Convert.ToInt32(s + ""));  // 12314 
+    }
+    resultTwo = listOfNumbersOne.Count();
+    Console.WriteLine($"Среднее арифметическое твоих цифр, гыы  ＼(+_+)／  :  {result = resultOne / resultTwo}");
+}
+else if (inputOption == "д") //123456 34 34
+{
+    foreach (char s in input)
+    {
+        helper = Convert.ToInt32(s + "");
+        resultOne = resultOne + (helper * helper);
+    }
+    Console.WriteLine($"Вот тебе сумма квадратов твоих цифр числа, НАААААА  ＼(+_+)／  :  {resultOne}");
+}
+else if (inputOption == "е") //123456 34 34
+{
+    foreach (char s in input)
+    {
+        helper = Convert.ToInt32(s + "");
+        resultOne = resultOne + (helper * helper * helper);
+    }
+    Console.WriteLine($"Вот тебе сумма кубиков твоих цифр числа, НАААААА  ＼(+_+)／  :  {resultOne}");
+}
+else if (inputOption == "ж")
+{
+    foreach (char s in input)
+    {
+        listOfNumbers.Add(Convert.ToInt32(s + ""));  // 12314 
+    }
+    Console.WriteLine($" Держи первую цифру, ухухухуху ＼(х_х)／ :  {listOfNumbers[0]}");
+}
+else if (inputOption == "з")
+{
+    foreach (char s in input)
+    {
+        listOfNumbers.Add(Convert.ToInt32(s + ""));  // 12314 
+    }
+    Console.WriteLine($" Держи сумму первого и последнего числа цифры, ухухухуху ＼(х_х)／ :  {listOfNumbers[0] + listOfNumbers[^1]}");
+}
+else
+{
+    Console.WriteLine("EEEEEEEEEERRRRROOOOOOOOOOOOOOOOR 404 404 404 404404 404 404 404 404vv v404 404404ndsfhnldshb,sbhgkj!!!!!!");
+}
