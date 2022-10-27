@@ -514,7 +514,7 @@ I3.2.  Даны три вещественных числа a, b, c. Провер
 //Console.WriteLine(listOfLastNumbers.Sum());
 */
 
-/*5 .4.
+/*W5 .4.
 W5 .4.Дано натуральное число.Определить:
 а) сумму его цифр;
 б) количество цифр в нем;
@@ -525,7 +525,6 @@ W5 .4.Дано натуральное число.Определить:
 ж) его первую цифру;
 з) сумму его первой и последней цифр.
 
-*/
 
 
 Console.WriteLine("Засранец, введи натуральное(не гейское) число гнидаа! Я для кого стараюсь епта!!!!");
@@ -584,7 +583,7 @@ else if (inputOption == "д") //123456 34 34
     foreach (char s in input)
     {
         helper = Convert.ToInt32(s + "");
-        resultOne = resultOne + (helper * helper);
+        resultOne = resultOne + (helper * helper); 
     }
     Console.WriteLine($"Вот тебе сумма квадратов твоих цифр числа, НАААААА  ＼(+_+)／  :  {resultOne}");
 }
@@ -617,3 +616,37 @@ else
 {
     Console.WriteLine("EEEEEEEEEERRRRROOOOOOOOOOOOOOOOR 404 404 404 404404 404 404 404 404vv v404 404404ndsfhnldshb,sbhgkj!!!!!!");
 }
+
+*/
+
+/* W5 .5. 
+W5 .5.Известны оценки по информатике каждого из 7 учеников класса. В начале списка перечислены все пятерки, 
+затем все остальные оценки. Сколько учеников имеют по информатике оценку «5»? Условный оператор не использовать. 
+Рассмотреть два случая:
+1) известно, что пятерки имеют не все ученики класса;
+2) допускается, что пятерки могут иметь все ученики класса.
+*/
+
+int[] arr = new int[20]; // 20 оценок 3 5 5 5 3 2 4...
+Random rnd = new Random();
+int sum = 0;
+for (int i = 0; i < arr.Length; i++)
+{
+    arr[i] = rnd.Next(2, 6); 
+}
+Array.Sort(arr); 
+Array.Reverse(arr); //5 5 5 5 5 4...
+foreach (int a in arr)
+{
+    Console.WriteLine("оценка - " + a);
+}
+
+for (int b = 0; b < arr.Length; b++)
+{
+    while (arr[b] == 5)
+    {
+        sum++;
+        break;
+    }
+}
+Console.WriteLine($"Воть кол-во ботанов(задротов): {sum}");
