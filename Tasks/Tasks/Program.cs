@@ -627,6 +627,8 @@ W5 .5.Известны оценки по информатике каждого �
 2) допускается, что пятерки могут иметь все ученики класса.
 */
 
+using System.Globalization;
+
 int[] arr = new int[20]; // 20 оценок 3 5 5 5 3 2 4...
 Random rnd = new Random();
 int sum = 0;
@@ -641,12 +643,20 @@ foreach (int a in arr)
     Console.WriteLine("оценка - " + a);
 }
 
-for (int b = 0; b < arr.Length; b++)
+//for (int b = 0; b < arr.Length; b++)
+//{
+//    while (arr[b] == 5)
+//    {
+//        sum++;
+//        break;
+//    }
+//}
+int j = 0;
+int b = 0;
+while (j<20 && arr[b] == 5)
 {
-    while (arr[b] == 5)
-    {
-        sum++;
-        break;
-    }
+    b++;
+    sum++;
+    j++;
 }
 Console.WriteLine($"Воть кол-во ботанов(задротов): {sum}");
