@@ -448,7 +448,7 @@ I3.2.  Даны три вещественных числа a, b, c. Провер
 //}
 //Console.WriteLine($"Выполняется неравенство {(ints[0] < ints[1] && ints[1] < ints[2] ? "a < b < c" : "b > a > c")}");
 
-/*
+/* I3.24.
  * I3.24. Определить, является ли заданное шестизначное число счастливым. 
  * (Счастливым называют такое шестизначное число, что сумма его первых трех цифр равна сумме 
  * его последних трех цифр).
@@ -463,28 +463,52 @@ I3.2.  Даны три вещественных числа a, b, c. Провер
 //}
 //Console.WriteLine($"Данное число {(intArray[0] + intArray[1] + intArray[2] == intArray[3] + intArray[4] + intArray[5] ? "является" : "не является")} счастливым!");
 
-(int sumFirst, int sumSecond) SumOfElements(List<int> arr, int n)
-{
-    int sumFirst = 0;
-    int sumSecond = 0;
-    for (int i = 0; i < n; i++)
-    {
-        //i < n / 2 ? sumFirst += arr[i] : sumSecond += arr[i]; -????? не робит!!!! 	ヽ(╬ Ò﹏Ó)ノ
-        if (i < n / 2)
-            sumFirst += arr[i];
+//(int sumFirst, int sumSecond) SumOfElements(List<int> arr, int n)
+//{
+//    int sumFirst = 0;
+//    int sumSecond = 0;
+//    for (int i = 0; i < n; i++)
+//    {
+//        //i < n / 2 ? sumFirst += arr[i] : sumSecond += arr[i]; -????? не робит!!!!   ヽ(╬ Ò﹏Ó)ノ
+//        if (i < n / 2)
+//            sumFirst += arr[i];
 
-        else
-            sumSecond += arr[i];
-    }
-    return (sumFirst, sumSecond);
-}
-Console.WriteLine("Ввдите число: ");
+//        else
+//            sumSecond += arr[i];
+//    }
+//    return (sumFirst, sumSecond);
+//}
+//Console.WriteLine("Ввдите число: ");
+//string input = Console.ReadLine();
+//List<int> arr = new List<int>();
+//foreach (char i in input)
+//{
+//    arr.Add(Convert.ToInt32(i + ""));
+//}
+
+//(int sumFirst, int sumSecond) sums = SumOfElements(arr, arr.Count);
+//Console.WriteLine($"Это число {(sums.sumFirst == sums.sumSecond ? "является" : "не является")} счастливым!");
+
+
+/* С5.13. Дано натуральное число.
+ * Найти сумму его последних n цифр. Величины для хранения всех n последних цифр числа не использовать.
+ */
+
+
+Console.WriteLine("Ввеедите натуральное число  (-_-)  : ");
 string input = Console.ReadLine();
-List<int> arr = new List<int>();
-foreach (char i in input)
-{
-    arr.Add(Convert.ToInt32(i + ""));
-}
 
-(int sumFirst, int sumSecond) sums = SumOfElements(arr, arr.Count);
-Console.WriteLine($"Это число {(sums.sumFirst == sums.sumSecond ? "является" : "не является")} счастливым!");
+List<int> numbersString = new List<int>();    
+foreach (char s in input)
+{
+    numbersString.Add(Convert.ToInt32(s + "")); 
+}
+Console.WriteLine("Введите кол-во последних цифр числа, которое хотите суммировать  ＼(0_0)／ : ");
+int naturalNumberToSum = Convert.ToInt32((Console.ReadLine())); 
+int helper = naturalNumberToSum * -1; 
+List<int> listOfLastNumbers = new List<int>();
+for (int i = helper; i < 0; i++)
+{
+    listOfLastNumbers.Add(numbersString[^(-i)]);  
+}
+Console.WriteLine(listOfLastNumbers.Sum());
