@@ -625,38 +625,167 @@ W5 .5.Известны оценки по информатике каждого �
 Рассмотреть два случая:
 1) известно, что пятерки имеют не все ученики класса;
 2) допускается, что пятерки могут иметь все ученики класса.
-*/
 
-using System.Globalization;
 
 int[] arr = new int[20]; // 20 оценок 3 5 5 5 3 2 4...
 Random rnd = new Random();
 int sum = 0;
 for (int i = 0; i < arr.Length; i++)
 {
-    arr[i] = rnd.Next(2, 6); 
+    arr[i] = rnd.Next(2, 6);
 }
-Array.Sort(arr); 
+Array.Sort(arr);
 Array.Reverse(arr); //5 5 5 5 5 4...
 foreach (int a in arr)
 {
     Console.WriteLine("оценка - " + a);
 }
 
-//for (int b = 0; b < arr.Length; b++)
-//{
-//    while (arr[b] == 5)
-//    {
-//        sum++;
-//        break;
-//    }
-//}
+for (int b = 0; b < arr.Length; b++)
+{
+    while (arr[b] == 5)
+    {
+        sum++;
+        break;
+    }
+}
 int j = 0;
 int b = 0;
-while (j<20 && arr[b] == 5)
+while (j < 20 && arr[b] == 5)
 {
     b++;
     sum++;
     j++;
 }
+
+for (int b = 0; b < arr.Length && arr[b] == 5; b++, sum++) ;
 Console.WriteLine($"Воть кол-во ботанов(задротов): {sum}");
+
+
+Console.WriteLine($"Кто имеет 5: {arr.Count(it => it == 5)}");
+*/
+
+
+/* Z4 .8.
+ * Z4 .8.Известны стоимости каждого из восьми предметов в двух наборах.
+ * Какой из наборов предметов более дешевый?
+
+
+List<int> listOfNumbers = new List<int>(8);
+List<int> secondListOfNumbers = new List<int>(8);
+Random rnd = new Random();
+int j = 0;
+int k = 0;
+}
+if (listOfNumbers.Sum() > secondListOfNumbers.Sum())
+{
+    Console.WriteLine("Второй набор носков более дешёвый, бери его!");
+}
+else if (listOfNumbers.Sum() < secondListOfNumbers.Sum())
+{
+    Console.WriteLine("Первый набор носков более дешёвый, бери его!");
+}
+else if (listOfNumbers.Sum() == secondListOfNumbers.Sum())
+{
+    Console.WriteLine("Тут что-то не так, они почему-то равны! Решай сам хехе: (`-|_|-) ");
+}
+else
+{
+    Console.WriteLine("ERROOOOOOOOR!");
+}
+*/
+
+
+/* Y2.2. Раньше в соревнованиях по фигурному катанию спортсмены выступали в трёх видах многоборья 
+ * (обязательная, короткая и произвольная программы). Известны результаты (в баллах) каждого из 15 участников соревнований.
+ * Организовать ввод информации по этой таблице и определить:
+ * а) среднее кол-во баллов, полученных каждым спортсменом;
+ * б) среднее кол-во баллов, полученных по каждому виду программы;
+ */
+
+
+//Random rnd = new Random();
+//int j = 1;
+//int[] numArray = new int[15];
+//string[] arrayBox = new string[4] { "Спортсмен", "Обязательная", "Короткая", "Произвольная" };
+
+//for (int i = 0; i < 15; i++)
+//{
+//    numArray[i] = j;
+//    j++;
+//}
+//foreach (string b in arrayBox)
+//{
+//    Console.Write($"{b} \t");
+//}
+//Console.WriteLine("\n");
+//List<string> list = new List<string>();
+//foreach (int c in numArray)
+//{
+//    Console.Write($"\n {c} \t \t ");
+//    list.Add(Console.Read() + "");
+//    Console.Write(" \t ");
+//    list.Add(Console.Read() + "");
+//    Console.Write(" \t ");
+//    list.Add(Console.Read() + "");
+//}
+
+// 2 + 4 * (1 / 3) + 2 * (10 + 5)
+
+
+// 2 + 4 * A + 2 * B
+// 2 + C + D
+
+// + 2 C D
+
+// + 2 (* 4 A) (* 2 B)
+// + 2 (* 4 ( / 1 3)) (* 2 (+ 10 5))
+
+// + ( * ( / ) ) ( * ( + ) )
+// 2 4 1 3 2 10 5
+
+// + ( * ) ( * ( + ) )
+// 2 4 0.2 2 10 5
+
+
+using Tasks;
+using Tasks.generics.Model;
+using Tasks.generics.Repo;
+
+//var person = new Person(23);
+//person.Method();
+
+//var person2 = new Person(50);
+
+//var iPhone = new Phone(Color.Blue, 10, "China");
+//string info = iPhone.GetInfo();
+//Console.WriteLine(info);
+
+
+//var iPhone = new Phone
+//{
+//    Color = Color.Pink,
+//    Price = 10000,
+//    Manufacturer = "China",
+//};
+
+//string info = iPhone.GetInfo();
+//Console.WriteLine(info);
+//Console.WriteLine(iPhone.IsKytay);
+
+
+var repo = new GenericRepo<User>();
+
+User foundById = repo.GetById("1");
+Console.WriteLine(foundById?.Name);
+
+repo.Insert(new User { Id = "1", Name = "Vasya" });
+repo.Insert(new User { Id = "2", Name = "Tolya" });
+
+User foundById2 = repo.GetById("1");
+Console.WriteLine(foundById2.Name);
+
+repo.Delete("1");
+
+User foundById3 = repo.GetById("1");
+Console.WriteLine(foundById3.Name);
